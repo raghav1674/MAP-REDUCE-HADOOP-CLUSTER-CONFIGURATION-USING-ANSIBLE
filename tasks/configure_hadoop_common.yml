@@ -1,0 +1,18 @@
+- hosts: 'tag_Name_HADOOP_CLIENT'
+  vars:
+    files:
+    - hadoop-1.2.1-1.x86_64.rpm
+    - jdk-8u171-linux-x64.rpm  
+  tasks:
+
+  - name: Copy rpms
+    copy:
+      src: "../files/{{ item }}" 
+      dest: "/"
+    loop: "{{ files }}"
+
+  - name: install packages
+    command: "rpm -i /{{ item.name }} {{ item.option }}"
+    loop:
+    - { name: jdk-8u171-linux-x64.rpm , option: "" }
+    - { name: hadoop-1.2.1-1.x86_64.rpm , option: "--force" }

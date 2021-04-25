@@ -1,0 +1,31 @@
+- hosts: 'tag_Name_HADOOP_DATANODE'
+  vars:
+    namenode_ip: "13.234.59.67"
+    namenode_svc_port: 9001
+    directory_path: '/dn-storage'
+    node_type: 'data'
+  tasks:
+  - name: Copy the config files 
+    template:
+      src: "../templates/{{ item }}"
+      dest: "/etc/hadoop/{{ item }}"
+    loop:
+    - hdfs-site.xml
+    - core-site.xml
+  
+  - name: creating {{ directory_path }} 
+    file:
+      path: "{{ directory_path }}"
+      state: directory 
+
+  - name: checking if namenode svc is running or not
+    shell: 'jps | grep -i Datanode'
+    register: datanode_svc_status
+    ignore_errors: true 
+
+  - name: start the datanode service
+    command: 'hadoop-daemon.sh start datanode'  
+    when: datanode_svc_status.rc != 0
+
+
+

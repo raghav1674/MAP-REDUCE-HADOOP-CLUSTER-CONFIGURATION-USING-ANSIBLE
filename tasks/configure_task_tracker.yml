@@ -1,0 +1,26 @@
+- hosts: 'tag_Name_HADOOP_TASK_TRACKER'
+  vars:
+    namenode_ip:  '13.234.59.67'
+    namenode_svc_port: 9001
+    jobtracker_ip: '13.127.217.162'
+    jobtracker_svc_port: '9002'
+  tasks:
+  - name: Copy the config files 
+    template:
+      src: "../templates/{{ item }}"
+      dest: "/etc/hadoop/{{ item }}"
+    loop:
+    - core-site.xml
+    - mapred-site.xml
+
+  - name: checking if tasktracker svc is running or not
+    shell: 'jps | grep -i TaskTracker'
+    register: tasktracker_svc_status
+    ignore_errors: true 
+
+  - name: start the tasktracker service
+    command: 'hadoop-daemon.sh start tasktracker'  
+    when: tasktracker_svc_status.rc != 0
+
+
+

@@ -1,0 +1,35 @@
+- hosts: 'tag_Name_HADOOP_NAMENODE'
+  vars:
+    namenode_ip: '0.0.0.0'
+    namenode_svc_port: 9001
+    directory_path: '/nn-storage'
+    node_type: 'name'
+  tasks:
+  - name: Copy the config files 
+    template:
+      src: "../templates/{{ item }}"
+      dest: "/etc/hadoop/{{ item }}"
+    loop:
+    - hdfs-site.xml
+    - core-site.xml
+
+  - name: check if dir {{ directory_path }} exists or not 
+    stat:
+      path: "{{ directory_path }}"
+    register: dir_exists
+     
+  - name: format the namenode dir 
+    command: 'hadoop namenode -format'
+    when: not dir_exists.stat.exists
+
+  - name: checking if namenode svc is running or not
+    shell: 'jps | grep Namenode'
+    register: namenode_svc_status
+    ignore_errors: true 
+
+  - name: start the namenode service
+    command: 'hadoop-daemon.sh start namenode'  
+    when: namenode_svc_status.rc != 0
+
+
+
