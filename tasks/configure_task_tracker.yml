@@ -1,8 +1,8 @@
 - hosts: 'tag_Name_HADOOP_TASK_TRACKER'
   vars:
-    namenode_ip:  '13.234.59.67'
+    namenode_ip:  ''
     namenode_svc_port: 9001
-    jobtracker_ip: '13.127.217.162'
+    jobtracker_ip: ''
     jobtracker_svc_port: '9002'
   tasks:
   - name: Copy the config files 

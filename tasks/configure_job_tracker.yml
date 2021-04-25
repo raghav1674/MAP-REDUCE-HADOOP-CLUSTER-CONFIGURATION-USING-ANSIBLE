@@ -1,6 +1,6 @@
 - hosts: 'tag_Name_HADOOP_JOB_TRACKER'
   vars:
-    namenode_ip:  '13.234.59.67'
+    namenode_ip:  ''
     namenode_svc_port: 9001
     jobtracker_ip: '0.0.0.0'
     jobtracker_svc_port: '9002'
