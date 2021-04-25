@@ -24,11 +24,12 @@
       aws_secret_key: "{{ AWS_SECRET_KEY_VAL }}"
       region: "{{ region_id }}"
     loop:
+    - { count: 1,tag_name: 'HADOOP-NAMENODE' }
+    - { count: 1,tag_name: 'HADOOP-DATANODE' }
+    - { count: 1,tag_name: 'HADOOP-JOB-TRACKER' }
+    - { count: 1,tag_name: 'HADOOP-TASK-TRACKER' }
     - { count: 1,tag_name: 'HADOOP-CLIENT' }
-            #  - { count: 1,tag_name: 'HADOOP-NAMENODE' }
-            # - { count: 1,tag_name: 'HADOOP-DATANODE' }
-            # - { count: 1,tag_name: 'HADOOP-JOB-TRACKER' }
-            # - { count: 1,tag_name: 'HADOOP-TASK-TRACKER' }
+
 
   - name: downloading ec2.py file
     get_url:
