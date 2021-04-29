@@ -1,5 +1,6 @@
 # MAP REDUCE CLUSTER CONFIGURED USING ANSIBLE:
 
+## Create vars folder, inside that create two files secret.yaml and instance_vars.yaml: 
 
 - vars/secret.yaml:
   ----------------
@@ -29,7 +30,7 @@
 	has_public_ip: true
 
 
-### Create files/ folder and download the following files in that folder:
+### Create files/ folder and download the following softwares in that folder:
 
 -> [Oracle jdk 8](https://javadl.oracle.com/webapps/download/AutoDL?BundleId=244574_d7fc238d0cbf4b0dac67be84580cfb4b)
 
