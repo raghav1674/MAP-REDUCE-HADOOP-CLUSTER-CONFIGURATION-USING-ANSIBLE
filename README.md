@@ -30,7 +30,6 @@
 
 
 ### In files folder download:
-    ------------------------
 
 -> [Oracle jdk 8](https://download.oracle.com/otn/java/jdk/8u291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/jdk-8u291-linux-x64.rpm)
 
