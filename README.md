@@ -29,7 +29,7 @@
 	has_public_ip: true
 
 
-### In files folder download:
+### Create files/ folder and download the following files in that folder:
 
 -> [Oracle jdk 8](https://javadl.oracle.com/webapps/download/AutoDL?BundleId=244574_d7fc238d0cbf4b0dac67be84580cfb4b)
 
