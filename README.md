@@ -36,3 +36,13 @@
 -> [hadoop 1.2.1-1](https://archive.apache.org/dist/hadoop/core/hadoop-1.2.1/hadoop-1.2.1-1.x86_64.rpm) 
         
 -> [hive](https://downloads.apache.org/hive/hive-1.2.2/apache-hive-1.2.2-bin.tar.gz)
+
+
+
+## HOW TO RUN THIS ANSIBLE PLAYBOOKS:
+
+ - Run the ec2_config.yaml file first. 
+   > ansible-playbook ec2_config.yaml
+ 
+ - Run the tasks/main.yaml file only. 
+   > ansible-playbook tasks/main.yaml
