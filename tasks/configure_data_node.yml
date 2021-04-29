@@ -1,6 +1,6 @@
 - hosts: 'tag_Name_HADOOP_DATANODE'
   vars:
-    namenode_ip: ""
+    namenode_ip: "{{ groups['tag_Name_HADOOP_NAMENODE'][0] }}"
     namenode_svc_port: 9001
     directory_path: '/dn-storage'
     node_type: 'data'

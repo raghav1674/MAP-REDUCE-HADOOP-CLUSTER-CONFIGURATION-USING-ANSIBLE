@@ -1,0 +1,24 @@
+- hosts: localhost
+  tasks:
+  - debug:
+      msg: CONFIGURING HADOOP HDFS AND MAP REDUCE OVER AMAZON LINUX 2  
+
+- name: configuring common requirements in all the nodes
+  import_playbook: 'configure_hadoop_common.yml'
+
+- name: configure name node 
+  import_playbook: 'configure_name_node.yml'
+
+- name: configure data node  
+  import_playbook: 'configure_data_node.yml'
+
+
+- name: configure job tracker 
+  import_playbook: 'configure_job_tracker.yml'
+
+- name: configure task tracker 
+  import_playbook: 'configure_task_tracker.yml'
+
+- name: configure hadoop client
+  import_playbook: 'configure_hadoop_user.yml'
+

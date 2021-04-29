@@ -1,8 +1,8 @@
 - hosts: 'tag_Name_HADOOP_CLIENT'
   vars:
-    namenode_ip:  ''
+    namenode_ip: "{{ groups['tag_Name_HADOOP_NAMENODE'][0] }}"
     namenode_svc_port: 9001
-    jobtracker_ip: ''
+    jobtracker_ip: "{{ groups['tag_Name_HADOOP_JOB_TRACKER'][0] }}"
     jobtracker_svc_port: '9002'
   tasks:
   - name: Copy the config files 
@@ -12,7 +12,4 @@
     loop:
     - core-site.xml
     - mapred-site.xml
-
-
-
 

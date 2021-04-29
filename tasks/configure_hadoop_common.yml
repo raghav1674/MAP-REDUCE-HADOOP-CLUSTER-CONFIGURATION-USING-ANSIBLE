@@ -1,4 +1,4 @@
-- hosts: 'tag_Name_HADOOP_CLIENT'
+- hosts: 'tag_Name_HADOOP*'
   vars:
     files:
     - hadoop-1.2.1-1.x86_64.rpm
