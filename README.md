@@ -31,7 +31,7 @@
 
 ### In files folder download:
 
--> [Oracle jdk 8](https://download.oracle.com/otn/java/jdk/8u291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/jdk-8u291-linux-x64.rpm)
+-> [Oracle jdk 8](https://javadl.oracle.com/webapps/download/AutoDL?BundleId=244574_d7fc238d0cbf4b0dac67be84580cfb4b)
 
 -> [hadoop 1.2.1-1](https://archive.apache.org/dist/hadoop/core/hadoop-1.2.1/hadoop-1.2.1-1.x86_64.rpm) 
         
