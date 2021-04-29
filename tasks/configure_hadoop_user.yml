@@ -15,9 +15,11 @@
 
   - name: create dir for hive 
     file:
-      path: /opt/apache-hive1/
+      path: "{{ item }}"
       state: directory
-      recurse: true
+    loop:
+    - "/opt"
+    - "/opt/apache-hive/"
 
   - name: Install and cofigure hive 
     unarchive:
@@ -25,15 +27,21 @@
       dest: /opt/apache-hive/
 
 
+
   - name: Updating the .bashrc for environmental variables 
     lineinfile:
       line: |
-            export HIVE_HOME=/opt/apache-hive/apache-hive-1.2.2-bin/
+            export HIVE_HOME=/opt/apache-hive/apache-hive-1.2.2-bin
             export PATH=$PATH:$HIVE_HOME/bin 
       path: /root/.bashrc 
       state: present
 
+  - name: testing hive command 
+    command: 'hive --help'
+    ignore_errors: true 
+
+
   - name: Setting the permission of the tmp folder in hdfs for hive 
-    command: 'hadoop fs -chmod 777 /tmp/hive' 
+    command: 'hadoop fs -chmod -R 777 /tmp/hive' 
         
 
