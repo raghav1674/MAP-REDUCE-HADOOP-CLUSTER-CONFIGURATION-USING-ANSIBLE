@@ -29,21 +29,6 @@
     - { count: 1,tag_name: 'HADOOP-JOB-TRACKER' }
     - { count: 1,tag_name: 'HADOOP-TASK-TRACKER' }
     - { count: 1,tag_name: 'HADOOP-CLIENT' }
-
-
-  - name: downloading ec2.py file
-    get_url:
-      url: "https://raw.githubusercontent.com/ansible/ansible/stable-2.9/contrib/inventory/ec2.py"
-      dest: "{{ inventory_path }}/ec2.py"
-      mode: o+wx
-    when: False
-
-  - name: downloading ec2.ini file
-    get_url:
-      url: "https://raw.githubusercontent.com/ansible/ansible/stable-2.9/contrib/inventory/ec2.ini"
-      dest: "{{ inventory_path }}/ec2.ini"
-      mode: o+w
-    when: False
  
  
   - name: appending aws_access_key in ec2.ini file
