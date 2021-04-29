@@ -3,6 +3,8 @@
   - debug:
       msg: CONFIGURING HADOOP HDFS AND MAP REDUCE OVER AMAZON LINUX 2  
 
+
+
 - name: configuring common requirements in all the nodes
   import_playbook: 'configure_hadoop_common.yml'
 
